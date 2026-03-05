@@ -1,7 +1,3 @@
-# Validar IBAN:
-# 1. Mover las 4 primeras posiciones al final
-# 2. Convertir letras a números (A=10, ..., Z=35)
-# 3. Si numero % 97 == 1 → válido
 def verificar_iban(iban): 
     iban = iban.replace(' ', '').upper()
     if len(iban) < 15 or len(iban) > 34:

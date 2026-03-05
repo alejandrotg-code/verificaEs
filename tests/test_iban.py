@@ -4,7 +4,6 @@ def test_iban_valido():
     assert verificar_iban("ES9121000418450200051332") == True
     assert verificar_iban("ES91 2100 0418 4502 0005 1332") == True
 
-
 def test_iban_invalido():
     assert verificar_iban("ES9121000418450200051333") == False
 
