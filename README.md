@@ -25,4 +25,4 @@ Documentation and endpoints coming soon.
 
 ## 📄 License
 
-MIT © [Alejandro](https://alejandrotg.es)
+MIT © [Alejandro Tacoronte González](https://alejandrotg.es)
