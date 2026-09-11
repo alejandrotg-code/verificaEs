@@ -1,3 +1,5 @@
+from typing import Optional
+
 PROVINCIAS_ESPANA = {
     "01": "Álava / Araba",
     "02": "Albacete",
@@ -70,7 +72,7 @@ def verificar_codigo_postal(cp: str) -> bool:
     return prefijo in PROVINCIAS_ESPANA
 
 
-def obtener_provincia_codigo_postal(cp: str) -> str | None:
+def obtener_provincia_codigo_postal(cp: str) -> Optional[str]:
     """
     Devuelve el nombre de la provincia asociada al código postal o None si no es válido.
     """
