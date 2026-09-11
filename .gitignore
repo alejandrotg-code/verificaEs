@@ -4,3 +4,9 @@ __pycache__/
 .venv/
 .pytest_cache/
 .vscode/
+
+# Build and distribution artifacts
+dist/
+build/
+*.egg-info/
+*.egg

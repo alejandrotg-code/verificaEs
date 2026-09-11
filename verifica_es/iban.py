@@ -1,0 +1,24 @@
+def verificar_iban(iban: str) -> bool:
+    """
+    Valida un código IBAN español (cálculo oficial módulo 97).
+    """
+    if not isinstance(iban, str):
+        return False
+
+    iban = iban.replace(" ", "").replace("-", "").upper()
+    if len(iban) < 15 or len(iban) > 34:
+        return False
+    if not iban.startswith("ES"):
+        return False
+
+    iban_reordenado = iban[4:] + iban[:4]
+    iban_numerico = ""
+    for char in iban_reordenado:
+        if char.isdigit():
+            iban_numerico += char
+        elif char.isalpha():
+            iban_numerico += str(ord(char) - 55)
+        else:
+            return False
+
+    return int(iban_numerico) % 97 == 1

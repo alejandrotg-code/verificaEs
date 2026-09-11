@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verifica-es"
+version = "1.1.0"
+description = "Librería ultraligera (cero dependencias) y API para validar documentos oficiales y formatos españoles (DNI, NIE, CIF, IBAN, Teléfonos, Códigos Postales y Matrículas)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Alejandro Tacoronte González", email = "alejandrotacorontegnlez@gmail.com" }
+]
+keywords = [
+    "validador",
+    "dni",
+    "nie",
+    "cif",
+    "iban",
+    "espana",
+    "spain",
+    "spanish",
+    "validation",
+    "matriculas",
+    "codigo-postal",
+    "fastapi"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.25.0",
+    "build",
+    "twine",
+]
+
+[project.scripts]
+verifica-es = "verifica_es.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/alejandrotg-code/verificaEs"
+Repository = "https://github.com/alejandrotg-code/verificaEs"
+Issues = "https://github.com/alejandrotg-code/verificaEs/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["verifica_es*", "app*"]

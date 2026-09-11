@@ -1,0 +1,43 @@
+name: CI Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+
+    - name: Install package and dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev,api]"
+
+    - name: Run pytest test suite
+      run: |
+        pytest -v
+
+    - name: Test CLI tool
+      run: |
+        verifica-es --version
+        verifica-es dni 12345678Z
+        verifica-es cif B86660149
+        verifica-es cp 35001
+
+    - name: Verify package build
+      run: |
+        python -m build
