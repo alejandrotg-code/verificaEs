@@ -14,7 +14,7 @@ def test_import_public_api():
     assert callable(verifica_es.verificar_matricula)
     assert callable(verifica_es.verificar_documento_identidad)
     assert isinstance(verifica_es.PROVINCIAS_ESPANA, dict)
-    assert verifica_es.__version__ == "1.1.0"
+    assert verifica_es.__version__ == "1.1.1"
 
 def test_cli_execution():
     # Verifica ejecución del CLI como módulo

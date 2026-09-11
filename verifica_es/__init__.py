@@ -18,7 +18,7 @@ from verifica_es.matricula import (
 )
 from verifica_es.documento import verificar_documento_identidad
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 __all__ = [
     "verificar_dni",
